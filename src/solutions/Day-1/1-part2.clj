@@ -1,3 +1,5 @@
+#!/usr/bin/env bb
+
 (defn count-increasing-with-window [{:keys [list num sum]} b]
   (if (< (count list) 3)
     {:list (conj list b)
@@ -13,7 +15,7 @@
          :num num}))))
 
 
-(with-open [rdr (clojure.java.io/reader "1-input")]
+(with-open [rdr (clojure.java.io/reader "../../input/day-1")]
   (:num (reduce count-increasing-with-window {:list []
                                               :sum 0
                                               :num 0} (map #(Integer/parseInt %) (line-seq rdr)))))

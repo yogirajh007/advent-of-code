@@ -10,8 +10,7 @@
       {:list (conj list b)
        :num num})))
 
-(with-open [rdr (clojure.java.io/reader "1-input")]
+
+(with-open [rdr (clojure.java.io/reader "../../input/day-1")]
   (:num (reduce count-increasing {:list []
                                   :num 0} (map #(Integer/parseInt %) (line-seq rdr)))))
-
-
