@@ -34,6 +34,15 @@
        (catch Exception e
          (println e))))
 
-(try (count (sum-and-append data 0 75))
-     (catch Exception e
-       (println e)))
+(def reference-data (vec (range 1 6)))
+
+
+(defn solution []
+  (let [values (mapv #(count (sum-and-append (vector %) 0 80)) reference-data)]
+    (reduce (fn [acc val] (+ acc (values (dec val)))) 0 data)))
+
+(time (solution))
+
+;;Sub-Optimal 
+;; "Elapsed time: 3099.910708 msecs"
+;; 356190
